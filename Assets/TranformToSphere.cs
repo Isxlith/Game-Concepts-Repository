@@ -12,6 +12,8 @@ public class TranformToSphere : MonoBehaviour
     {
         sphere = GameObject.FindWithTag("Sphere");
         cube = GameObject.FindWithTag("Cube");
+        //cube.SetActive(false);
+        cube.transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
     // Update is called once per frame
@@ -21,19 +23,19 @@ public class TranformToSphere : MonoBehaviour
         {
             if(sphere.active == true)
             {
-                sphere.transform.localScale -= new Vector3(1.0f, 1.0f, 1.0f);
-                cube.transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
-                cube.transform.localPosition += sphere.transform.localPosition;
-                cube.transform.localPosition += new Vector3(0.0f, 0.1f, 0.0f);
+                sphere.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                cube.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                cube.transform.localPosition = sphere.transform.localPosition;
+                //cube.transform.localPosition = new Vector3(0.0f, 0.0f, -0.5f);
                 cube.SetActive(true);
                 sphere.SetActive(false);
             }
             else if (cube.active == true)
             {
-                cube.transform.localScale -= new Vector3(1.0f, 1.0f, 1.0f);
-                sphere.transform.localScale += new Vector3(1.0f, 1.0f, 1.0f);
-                sphere.transform.localPosition += cube.transform.localPosition;
-                sphere.transform.localPosition += new Vector3(0.0f, 0.1f, 0.0f);
+                cube.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                sphere.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                sphere.transform.localPosition = cube.transform.localPosition;
+                //sphere.transform.localPosition = new Vector3(0.0f, 0.0f, -0.5f);
                 cube.SetActive(false);
                 sphere.SetActive(true);
             }
